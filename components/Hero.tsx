@@ -35,7 +35,7 @@ export default function Hero() {
             className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/20 backdrop-blur-sm px-3 py-1 text-xs font-bold text-primary border border-primary/30"
           >
             <BadgeCheck className="h-4 w-4" />
-            AgriTech Innovation 2024
+            Projet Rab'hack 2026
           </motion.div>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
