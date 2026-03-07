@@ -1,10 +1,12 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { joinWaitlist } from '@/app/actions/waitlist';
-import { CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
+import { AlertCircle, Loader2 } from 'lucide-react';
 
 export default function WaitlistForm({ variant = 'primary' }: { variant?: 'primary' | 'white' }) {
+  const router = useRouter();
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [message, setMessage] = useState('');
 
@@ -14,19 +16,13 @@ export default function WaitlistForm({ variant = 'primary' }: { variant?: 'prima
     if (res.error) {
       setStatus('error');
       setMessage(res.error);
-    } else {
+    } else if (res.success && res.email) {
       setStatus('success');
-      setMessage('Merci ! Vous êtes sur la liste d\'attente.');
+      router.push(`/onboarding?email=${encodeURIComponent(res.email)}`);
+    } else {
+       setStatus('error');
+       setMessage('Une erreur est survenue.');
     }
-  }
-
-  if (status === 'success') {
-    return (
-      <div className={`flex items-center gap-2 text-sm font-medium ${variant === 'white' ? 'text-white' : 'text-primary-dark'}`}>
-        <CheckCircle2 className="h-5 w-5" />
-        {message}
-      </div>
-    );
   }
 
   return (
