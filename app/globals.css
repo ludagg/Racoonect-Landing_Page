@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #13ec13;
+  --color-primary-dark: #0ea80e;
+  --color-primary-light: #e7fce7;
+  --color-background-light: #f6f8f6;
+  --color-background-dark: #102210;
+  --color-text-main: #0d1b0d;
+  --color-text-secondary: #4c9a4c;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
