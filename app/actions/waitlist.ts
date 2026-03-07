@@ -1,25 +1,38 @@
 'use server'
 import { supabase } from '@/lib/supabase';
+import { redirect } from 'next/navigation';
 
 export async function joinWaitlist(formData: FormData) {
   const email = formData.get('email') as string;
   if (!email) return { error: 'Email requis' };
 
-  // Fallback if supabase is not configured properly
-  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || (!process.env.SUPABASE_SECRET_KEY && !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)) {
-     console.warn('Supabase credentials missing. Mocking waitlist join for:', email);
-     // Simulate network delay
-     await new Promise(resolve => setTimeout(resolve, 800));
-     return { success: true };
-  }
+  // Instead of inserting here, we'll redirect to the full registration page
+  // We use a server action to potentially do some light validation or logging if needed
+  // but for now, let's just redirect.
+  redirect(`/rejoindre?email=${encodeURIComponent(email)}`);
+}
+
+export async function completeRegistration(formData: FormData) {
+  const email = formData.get('email') as string;
+  const full_name = formData.get('full_name') as string;
+  const farm_type = formData.get('farm_type') as string;
+  const location = formData.get('location') as string;
+  const main_interest = formData.get('main_interest') as string;
+
+  if (!email) return { error: 'Email requis' };
 
   try {
     const { error } = await supabase
       .from('waitlist')
-      .insert([{ email }]);
+      .upsert({
+        email,
+        full_name,
+        farm_type,
+        location,
+        main_interest,
+      }, { onConflict: 'email' });
 
     if (error) {
-      if (error.code === '23505') return { error: 'Cet email est déjà inscrit.' };
       return { error: error.message };
     }
 

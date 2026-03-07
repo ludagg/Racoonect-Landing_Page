@@ -15,7 +15,7 @@ export default function CTA() {
       >
         <h2 className="text-3xl font-bold tracking-tight text-text-main lg:text-4xl mb-6">Prêt à valoriser vos ressources ?</h2>
         <p className="text-lg text-text-main/70 mb-10 max-w-2xl mx-auto">
-          Rejoignez plus de 500 exploitations agricoles qui font confiance à Racoonect pour leur transition écologique et économique. Inscrivez-vous sur notre liste d'attente.
+          Rejoignez plus de 500 exploitations agricoles qui font confiance à Racoonect pour leur transition écologique et économique. Inscrivez-vous sur notre liste d&apos;attente.
         </p>
         <div className="flex justify-center">
           <WaitlistForm variant="primary" />

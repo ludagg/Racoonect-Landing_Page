@@ -2,31 +2,20 @@
 
 import { useState } from 'react';
 import { joinWaitlist } from '@/app/actions/waitlist';
-import { CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
+import { AlertCircle, Loader2 } from 'lucide-react';
 
 export default function WaitlistForm({ variant = 'primary' }: { variant?: 'primary' | 'white' }) {
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'error'>('idle');
   const [message, setMessage] = useState('');
 
   async function action(formData: FormData) {
     setStatus('loading');
     const res = await joinWaitlist(formData);
-    if (res.error) {
+    if (res?.error) {
       setStatus('error');
       setMessage(res.error);
-    } else {
-      setStatus('success');
-      setMessage('Merci ! Vous êtes sur la liste d\'attente.');
     }
-  }
-
-  if (status === 'success') {
-    return (
-      <div className={`flex items-center gap-2 text-sm font-medium ${variant === 'white' ? 'text-white' : 'text-primary-dark'}`}>
-        <CheckCircle2 className="h-5 w-5" />
-        {message}
-      </div>
-    );
+    // Success will be handled by redirection in the server action
   }
 
   return (
