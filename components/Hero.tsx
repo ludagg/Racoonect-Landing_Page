@@ -1,5 +1,9 @@
+'use client';
+
 import Image from 'next/image';
 import { BadgeCheck } from 'lucide-react';
+import WaitlistForm from './WaitlistForm';
+import { motion } from 'motion/react';
 
 export default function Hero() {
   return (
@@ -18,26 +22,45 @@ export default function Hero() {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-20 max-w-2xl">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/20 backdrop-blur-sm px-3 py-1 text-xs font-bold text-primary border border-primary/30">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="relative z-20 max-w-2xl"
+        >
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/20 backdrop-blur-sm px-3 py-1 text-xs font-bold text-primary border border-primary/30"
+          >
             <BadgeCheck className="h-4 w-4" />
             AgriTech Innovation 2024
-          </div>
-          <h1 className="text-4xl font-black leading-tight tracking-tight text-white lg:text-6xl mb-6">
+          </motion.div>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="text-4xl font-black leading-tight tracking-tight text-white lg:text-6xl mb-6"
+          >
             Transformez vos déchets <br />en <span className="text-primary">or vert</span>.
-          </h1>
-          <p className="text-lg font-medium text-gray-200 mb-8 max-w-lg leading-relaxed">
-            RACOONS valorise la biomasse pour une agriculture durable. Produisez votre propre compost et biogaz, réduisez vos coûts et régénérez vos sols.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <button className="flex h-12 items-center justify-center rounded-lg bg-primary px-8 text-base font-bold text-background-dark transition-all hover:bg-primary-dark shadow-[0_0_20px_rgba(19,236,19,0.3)] cursor-pointer">
-              Découvrir la solution
-            </button>
-            <button className="flex h-12 items-center justify-center rounded-lg bg-white/10 px-8 text-base font-bold text-white backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all cursor-pointer">
-              Voir la démo
-            </button>
-          </div>
-        </div>
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="text-lg font-medium text-gray-200 mb-8 max-w-lg leading-relaxed"
+          >
+            Racoonect valorise la biomasse pour une agriculture durable. Produisez votre propre compost et biogaz, réduisez vos coûts et régénérez vos sols.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+          >
+            <WaitlistForm variant="white" />
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

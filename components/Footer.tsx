@@ -11,7 +11,7 @@ export default function Footer() {
               <div className="flex h-6 w-6 items-center justify-center rounded bg-primary text-background-dark">
                 <Leaf className="h-4 w-4" />
               </div>
-              <h2 className="text-lg font-bold tracking-tight text-text-main">RACOONS</h2>
+              <h2 className="text-lg font-bold tracking-tight text-text-main">Racoonect</h2>
             </div>
             <p className="text-sm text-text-main/60 mb-6">
               Technologie au service de l&apos;agriculture régénératrice. Transformons ensemble le modèle agricole.
@@ -56,7 +56,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-text-main/50">
-          <p>© 2024 RACOONS AgriTech. Tous droits réservés.</p>
+          <p>© 2024 Racoonect AgriTech. Tous droits réservés.</p>
           <div className="flex gap-6">
             <Link href="#" className="hover:text-text-main">Mentions légales</Link>
             <Link href="#" className="hover:text-text-main">Confidentialité</Link>

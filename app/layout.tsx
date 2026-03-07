@@ -9,8 +9,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'RACOONS - AgriTech for Sustainable Soils',
-  description: 'Transformez vos déchets en or vert. RACOONS valorise la biomasse pour une agriculture durable.',
+  title: 'Racoonect - AgriTech for Sustainable Soils',
+  description: 'Transformez vos déchets en or vert. Racoonect valorise la biomasse pour une agriculture durable.',
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {

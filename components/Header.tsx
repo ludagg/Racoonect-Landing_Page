@@ -8,7 +8,7 @@ export default function Header() {
         <div className="flex h-8 w-8 items-center justify-center rounded bg-primary text-background-dark">
           <Leaf className="h-5 w-5" />
         </div>
-        <h2 className="text-xl font-bold tracking-tight text-text-main">RACOONS</h2>
+        <h2 className="text-xl font-bold tracking-tight text-text-main">Racoonect</h2>
       </div>
       <nav className="hidden lg:flex items-center gap-8">
         <Link href="#" className="text-sm font-medium text-text-main hover:text-primary transition-colors">Solution</Link>
@@ -17,9 +17,9 @@ export default function Header() {
         <Link href="#" className="text-sm font-medium text-text-main hover:text-primary transition-colors">À propos</Link>
       </nav>
       <div className="flex items-center gap-4">
-        <button className="hidden lg:flex h-10 items-center justify-center rounded-lg bg-primary px-6 text-sm font-bold text-background-dark transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-primary/20 cursor-pointer">
-          Commencer
-        </button>
+        <a href="#waitlist" className="hidden lg:flex h-10 items-center justify-center rounded-lg bg-primary px-6 text-sm font-bold text-background-dark transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-primary/20 cursor-pointer">
+          Rejoindre
+        </a>
         <button className="lg:hidden p-2 text-text-main">
           <Menu className="h-6 w-6" />
         </button>
